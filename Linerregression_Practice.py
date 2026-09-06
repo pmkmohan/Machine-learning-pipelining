@@ -21,7 +21,6 @@ X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=.2,random_state=0
 # Feature Scaling
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
-
 X_train =sc.fit_transform(X_train)
 X_test = sc.fit_transform(X_test)
 
