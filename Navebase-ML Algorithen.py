@@ -20,16 +20,25 @@ y = dataset.iloc[:, -1]   # Salary (Dependent variable)
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2,random_state=0)
 
-# Feature Scaling
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-x_train =sc.fit_transform(x_train)
-x_test = sc.fit_transform(x_test)
+# Feature Scaling using Normaizer as we have negive values.
+#from sklearn.preprocessing import Normalizer
+#sc = Normalizer()
+#x_train =sc.fit_transform(x_train)
+#x_test = sc.fit_transform(x_test)
 
 # Fit the Logistic Regression model to the training set
-from sklearn.naive_bayes import BernoulliNB
-classifier = BernoulliNB()
+#from sklearn.naive_bayes import BernoulliNB
+#classifier = BernoulliNB()
+#classifier.fit(x_train, y_train)
+
+#from sklearn.naive_bayes import MultinomialNB
+#classifier = MultinomialNB()
+#classifier.fit(x_train, y_train)
+
+from sklearn.naive_bayes import GaussianNB
+classifier = GaussianNB()
 classifier.fit(x_train, y_train)
+
 
 # Predicting the results for the test set
 y_pred = classifier.predict(x_test)
